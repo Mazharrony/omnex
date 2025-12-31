@@ -17,6 +17,7 @@ export default function Navigation() {
 
   const navLinks = [
     { href: "/", label: "Home" },
+    { href: "/products", label: "Products" },
     { href: "/solutions", label: "Solutions" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
@@ -32,19 +33,21 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-20">
           <Link
             href="/"
-            className="text-xl font-semibold text-foreground hover:opacity-70 transition-opacity"
+            className="text-2xl font-bold text-foreground hover:text-[var(--accent)] transition-colors relative group"
           >
-            OMNEX
+            <span className="relative z-10">OMNEX</span>
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--accent)] group-hover:w-full transition-all duration-300"></span>
           </Link>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-2">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm text-foreground/80 hover:text-foreground hover-underline transition-colors"
+                className="relative px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors rounded-lg hover:bg-gray-50 group"
               >
                 {link.label}
+                <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-[var(--accent)] group-hover:w-3/4 transition-all duration-300"></span>
               </Link>
             ))}
           </div>
@@ -52,9 +55,10 @@ export default function Navigation() {
           <div className="hidden md:block">
           <Link
             href="/contact"
-            className="px-6 py-2.5 text-sm font-semibold text-white bg-[var(--accent)] hover:bg-[var(--accent-hover)] transition-all rounded-lg shadow-sm hover:shadow-md"
+            className="relative px-6 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-[var(--accent)] to-[var(--accent-hover)] hover:from-[var(--accent-hover)] hover:to-[var(--accent)] transition-all rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 overflow-hidden group"
           >
-            Request Quote
+            <span className="relative z-10">Request Quote</span>
+            <span className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
           </Link>
           </div>
 

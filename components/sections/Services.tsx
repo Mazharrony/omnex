@@ -61,27 +61,32 @@ export default function Services() {
 
         <div className="space-y-16">
           {services.map((service, index) => (
-            <div key={index} className="border-b border-gray-200 pb-16 last:border-b-0">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-1 h-16 bg-[var(--accent)] rounded-full flex-shrink-0"></div>
-                <div className="flex-1">
-                  <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                    {service.title}
-                  </h3>
-                  <p className="text-base md:text-lg text-foreground/70 leading-relaxed mb-6 max-w-4xl">
-                    {service.description}
-                  </p>
-                </div>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6 ml-5">
-                {service.details.map((detail, detailIndex) => (
-                  <div key={detailIndex} className="flex items-start bg-gray-50 p-4 rounded-lg border border-gray-100">
-                    <span className="text-[var(--accent)] mr-3 mt-1.5 font-bold text-lg">•</span>
-                    <span className="text-sm md:text-base text-foreground/70 leading-relaxed">
-                      {detail}
-                    </span>
+            <div key={index} className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-hover)] rounded-2xl opacity-0 group-hover:opacity-20 blur transition-opacity duration-300"></div>
+              <div className="relative bg-white border-2 border-gray-200 rounded-2xl p-8 md:p-10 hover:border-[var(--accent)]/40 hover:shadow-2xl transition-all duration-300">
+                <div className="flex items-start gap-6 mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-[var(--accent)] to-[var(--accent-hover)] rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                    <span className="text-white font-bold text-2xl">{index + 1}</span>
                   </div>
-                ))}
+                  <div className="flex-1">
+                    <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4 group-hover:text-[var(--accent)] transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="text-base md:text-lg text-foreground/70 leading-relaxed mb-6 max-w-4xl">
+                      {service.description}
+                    </p>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {service.details.map((detail, detailIndex) => (
+                    <div key={detailIndex} className="flex items-start bg-gradient-to-br from-gray-50 to-white p-4 rounded-xl border border-gray-200 hover:border-[var(--accent)]/40 hover:shadow-md transition-all group/item">
+                      <span className="text-[var(--accent)] mr-3 mt-1.5 font-bold text-lg group-hover/item:scale-125 transition-transform">•</span>
+                      <span className="text-sm md:text-base text-foreground/70 leading-relaxed">
+                        {detail}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           ))}

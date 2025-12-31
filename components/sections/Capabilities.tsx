@@ -44,18 +44,21 @@ export default function Capabilities() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
           {capabilities.map((capability, index) => (
-            <div key={index} className="bg-white p-8 border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow hover:border-[var(--accent)]/30">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-[var(--accent)]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <span className="text-[var(--accent)] font-bold text-xl">{index + 1}</span>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-foreground mb-3">
-                    {capability.title}
-                  </h3>
-                  <p className="text-base text-foreground/60 leading-relaxed">
-                    {capability.description}
-                  </p>
+            <div key={index} className="group relative">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-[var(--accent)] via-[var(--accent-light)] to-[var(--accent)] rounded-2xl opacity-0 group-hover:opacity-100 blur transition-opacity duration-300"></div>
+              <div className="relative bg-white p-8 border-2 border-gray-200 rounded-2xl hover:border-transparent transition-all duration-300 hover:shadow-2xl">
+                <div className="flex items-start gap-4">
+                  <div className="w-14 h-14 bg-gradient-to-br from-[var(--accent)] to-[var(--accent-hover)] rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg transform group-hover:scale-110 group-hover:-rotate-6 transition-all duration-300">
+                    <span className="text-white font-bold text-xl">{index + 1}</span>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-[var(--accent)] transition-colors">
+                      {capability.title}
+                    </h3>
+                    <p className="text-base text-foreground/60 leading-relaxed">
+                      {capability.description}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

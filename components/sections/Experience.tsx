@@ -56,15 +56,18 @@ export default function Experience() {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
           {stats.map((stat, index) => (
-            <div key={index} className="text-center bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl border border-gray-200 hover:border-[var(--accent)]/40 hover:shadow-lg transition-all">
-              <div className="text-5xl md:text-6xl font-bold text-[var(--accent)] mb-3">
-                {stat.number}
-              </div>
-              <div className="text-lg font-bold text-foreground mb-2">
-                {stat.label}
-              </div>
-              <div className="text-sm text-foreground/60">
-                {stat.description}
+            <div key={index} className="group relative">
+              <div className="absolute -inset-1 bg-gradient-to-br from-[var(--accent)] to-[var(--accent-light)] rounded-2xl opacity-0 group-hover:opacity-30 blur transition-opacity duration-300"></div>
+              <div className="relative text-center bg-gradient-to-br from-white via-gray-50 to-white p-8 rounded-2xl border-2 border-gray-200 hover:border-[var(--accent)]/40 hover:shadow-2xl transition-all transform group-hover:-translate-y-2">
+                <div className="text-5xl md:text-6xl font-bold bg-gradient-to-br from-[var(--accent)] to-[var(--accent-hover)] bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform">
+                  {stat.number}
+                </div>
+                <div className="text-lg font-bold text-foreground mb-2">
+                  {stat.label}
+                </div>
+                <div className="text-sm text-foreground/60">
+                  {stat.description}
+                </div>
               </div>
             </div>
           ))}
@@ -72,13 +75,16 @@ export default function Experience() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {expertise.map((item, index) => (
-            <div key={index} className="border-l-4 border-[var(--accent)] pl-6 bg-gray-50 p-6 rounded-r-lg hover:bg-gray-100 transition-colors">
-              <h3 className="text-xl font-bold text-foreground mb-3">
-                {item.title}
-              </h3>
-              <p className="text-base text-foreground/70 leading-relaxed">
-                {item.description}
-              </p>
+            <div key={index} className="group relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-light)] rounded-2xl opacity-0 group-hover:opacity-20 blur transition-opacity duration-300"></div>
+              <div className="relative border-l-4 border-[var(--accent)] pl-6 bg-gradient-to-br from-gray-50 to-white p-6 rounded-r-2xl hover:shadow-xl transition-all border-2 border-l-4 border-l-[var(--accent)] border-t-gray-200 border-r-gray-200 border-b-gray-200">
+                <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-[var(--accent)] transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-base text-foreground/70 leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
