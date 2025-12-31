@@ -21,15 +21,17 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-32 pb-24">
-        <div className="max-w-3xl">
+        <div className="max-w-4xl">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold text-foreground mb-6 leading-tight">
             Oil & Gas Solutions
             <br />
             <span className="text-foreground/80">Electrical Supplies</span>
           </h1>
-          <p className="text-lg md:text-xl text-foreground/70 mb-10 max-w-2xl leading-relaxed">
-            Global provider delivering precision, reliability, and industrial intelligence
-            to energy infrastructure worldwide.
+          <p className="text-xl md:text-2xl text-foreground/80 mb-6 max-w-3xl leading-relaxed font-medium">
+            Global provider delivering precision-engineered equipment, certified electrical systems, and industrial intelligence to energy infrastructure worldwide.
+          </p>
+          <p className="text-base md:text-lg text-foreground/70 mb-10 max-w-3xl leading-relaxed">
+            Serving upstream, midstream, and downstream operations with comprehensive solutions spanning drilling equipment, pipeline infrastructure, refining systems, and high-voltage electrical distribution. ISO-certified quality standards, 24/7 technical support, and rapid deployment capabilities across six continents.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link

@@ -3,22 +3,46 @@ export default function Services() {
     {
       title: "Oil & Gas Solutions",
       description:
-        "Comprehensive equipment and services for upstream, midstream, and downstream operations. From drilling to distribution.",
+        "Comprehensive equipment and services spanning the entire energy value chain. Upstream operations include drilling rigs, wellhead equipment, production systems, and EOR (Enhanced Oil Recovery) technologies. Midstream solutions cover pipeline infrastructure, compression stations, storage facilities, and LNG terminals. Downstream capabilities encompass refining equipment, petrochemical processing units, distribution systems, and terminal automation.",
+      details: [
+        "Drilling equipment: Rotary tables, mud pumps, BOP systems, drill pipes",
+        "Production systems: Separators, heaters, dehydrators, flow meters",
+        "Pipeline infrastructure: Valves, fittings, pigging systems, SCADA controls",
+        "Refining equipment: Distillation columns, reactors, heat exchangers, pumps",
+      ],
     },
     {
       title: "Electrical Supplies",
       description:
-        "High-grade electrical components, systems, and infrastructure solutions for industrial and commercial applications.",
+        "High-grade electrical components and systems engineered for industrial and hazardous environments. Complete solutions from low-voltage distribution to high-voltage transmission, including explosion-proof equipment certified for Class I Division 1 and 2 areas. Motor control centers, variable frequency drives, switchgear, transformers, and comprehensive power distribution systems.",
+      details: [
+        "HV/LV switchgear: Up to 36kV, certified IEC 61439, ANSI standards",
+        "Motor control systems: VFDs, soft starters, protection relays, PLC integration",
+        "Explosion-proof equipment: Class I/II Div 1 & 2, ATEX, IECEx certified",
+        "Power distribution: Transformers, panelboards, busway systems, cable management",
+      ],
     },
     {
       title: "Industrial Equipment",
       description:
-        "Specialized machinery and tools designed for heavy industrial environments. Built for reliability and performance.",
+        "Specialized machinery and tools designed for heavy industrial environments where reliability and performance are critical. Process equipment including pumps, compressors, heat exchangers, and separation systems. Material handling solutions, safety systems, and automation controls integrated for seamless operations.",
+      details: [
+        "Rotating equipment: Centrifugal pumps, reciprocating compressors, turbines",
+        "Process equipment: Heat exchangers, separators, filters, scrubbers",
+        "Safety systems: Emergency shutdown systems, fire and gas detection, relief valves",
+        "Automation: DCS, SCADA, HMI systems, instrumentation and control valves",
+      ],
     },
     {
-      title: "Technical Support",
+      title: "Technical Support & Services",
       description:
-        "Expert consultation, installation guidance, and ongoing maintenance support for all delivered solutions.",
+        "Expert consultation, installation guidance, commissioning services, and ongoing maintenance support. Field service engineers available 24/7 for emergency response. Training programs, spare parts management, and lifecycle support ensuring optimal equipment performance and minimal downtime.",
+      details: [
+        "Field services: Installation, commissioning, troubleshooting, emergency response",
+        "Training programs: Operator training, maintenance procedures, safety protocols",
+        "Spare parts: Global inventory, rapid delivery, OEM and compatible alternatives",
+        "Lifecycle support: Preventive maintenance, condition monitoring, equipment upgrades",
+      ],
     },
   ];
 
@@ -29,24 +53,31 @@ export default function Services() {
           <h2 className="text-4xl md:text-5xl font-semibold text-foreground mb-4">
             Solutions
           </h2>
-          <p className="text-lg text-foreground/60 max-w-2xl">
-            Delivering comprehensive capabilities across oil & gas and electrical
-            supply chains.
+          <p className="text-lg text-foreground/60 max-w-3xl leading-relaxed">
+            Delivering comprehensive capabilities across oil & gas and electrical supply chains. 
+            Engineered solutions backed by technical expertise, quality certifications, and global support infrastructure.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        <div className="space-y-16">
           {services.map((service, index) => (
-            <div
-              key={index}
-              className="border-b border-gray-200 pb-8 last:border-b-0 md:last:border-b md:border-b-0"
-            >
-              <h3 className="text-xl font-semibold text-foreground mb-3">
+            <div key={index} className="border-b border-gray-200 pb-16 last:border-b-0">
+              <h3 className="text-2xl md:text-3xl font-semibold text-foreground mb-4">
                 {service.title}
               </h3>
-              <p className="text-base text-foreground/60 leading-relaxed">
+              <p className="text-base md:text-lg text-foreground/70 leading-relaxed mb-6 max-w-4xl">
                 {service.description}
               </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                {service.details.map((detail, detailIndex) => (
+                  <div key={detailIndex} className="flex items-start">
+                    <span className="text-[var(--accent)] mr-3 mt-1.5 font-semibold">•</span>
+                    <span className="text-sm md:text-base text-foreground/60 leading-relaxed">
+                      {detail}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
         </div>
