@@ -75,48 +75,37 @@ export default function Industries() {
   ];
 
   return (
-    <section className="py-24 md:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Industries Served
+    <section className="py-16 md:py-20 bg-white">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8">
+        <div className="mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
+            Industries
           </h2>
-          <p className="text-lg text-foreground/60 max-w-3xl leading-relaxed">
-            Serving critical sectors with specialized solutions and technical expertise. 
-            Our industry knowledge spans the complete energy value chain and industrial applications.
+          <p className="text-base text-foreground/60 max-w-2xl">
+            Specialized solutions for critical sectors across the energy value chain.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {industries.map((industry, index) => (
             <div
               key={index}
-              className="group relative"
+              className="group bg-white border border-gray-200 rounded-lg p-5 hover:border-[var(--accent)]/50 hover:shadow-sm transition-all h-full flex flex-col"
             >
-              <div className="absolute -inset-1 bg-gradient-to-br from-[var(--accent)] to-[var(--accent-light)] rounded-2xl opacity-0 group-hover:opacity-20 blur transition-opacity duration-300"></div>
-              <div className="relative border-2 border-gray-200 p-8 rounded-2xl hover:border-[var(--accent)]/40 hover:shadow-2xl transition-all bg-white h-full flex flex-col">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[var(--accent)] to-[var(--accent-hover)] rounded-xl flex items-center justify-center shadow-lg transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                    <span className="text-white font-bold">{index + 1}</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground group-hover:text-[var(--accent)] transition-colors">
-                    {industry.name}
-                  </h3>
-                </div>
-                <p className="text-sm text-foreground/60 mb-4 leading-relaxed">
-                  {industry.description}
-                </p>
-                <ul className="space-y-2">
-                  {industry.applications.map((app, appIndex) => (
-                    <li key={appIndex} className="flex items-start">
-                      <span className="text-[var(--accent)] mr-2 mt-1 text-xs">▸</span>
-                      <span className="text-xs text-foreground/50 leading-relaxed">
-                        {app}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-[var(--accent)] transition-colors">
+                {industry.name}
+              </h3>
+              <p className="text-sm text-foreground/60 mb-3 leading-relaxed">
+                {industry.description}
+              </p>
+              <ul className="space-y-1.5 mt-auto">
+                {industry.applications.slice(0, 4).map((app, appIndex) => (
+                  <li key={appIndex} className="flex items-start text-xs text-foreground/60">
+                    <span className="text-[var(--accent)] mr-2 mt-0.5">•</span>
+                    <span className="line-clamp-1">{app}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>

@@ -48,13 +48,13 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-4">
             <Link
               href="/contact"
-              className="px-8 py-4 text-base font-semibold text-white bg-[var(--accent)] hover:bg-[var(--accent-hover)] transition-all inline-block text-center rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+              className="px-6 py-3 text-base font-semibold text-white bg-[var(--accent)] hover:bg-[var(--accent-hover)] transition-all inline-block text-center rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5"
             >
               Request Quote
             </Link>
             <Link
               href="/solutions"
-              className="px-8 py-4 text-base font-semibold text-white bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all inline-block text-center rounded-lg"
+              className="px-6 py-3 text-base font-semibold text-white bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all inline-block text-center rounded-lg"
             >
               View Solutions
             </Link>

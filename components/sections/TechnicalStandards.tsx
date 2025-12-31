@@ -36,43 +36,34 @@ export default function TechnicalStandards() {
   ];
 
   return (
-    <section className="py-24 md:py-32 bg-[var(--background)]">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Compliance & Standards
+    <section className="py-16 md:py-20 bg-white">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8">
+        <div className="mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
+            Standards
           </h2>
-          <p className="text-lg text-foreground/60 max-w-3xl leading-relaxed">
-            All equipment and solutions comply with international standards and regional regulations. 
-            Comprehensive certification documentation provided with every delivery, ensuring regulatory 
-            compliance and operational safety.
+          <p className="text-base text-foreground/60 max-w-2xl">
+            Compliance with international standards and regional regulations.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {standards.map((standard, index) => (
-            <div key={index} className="group relative">
-              <div className="absolute -inset-1 bg-gradient-to-br from-[var(--accent)] to-[var(--accent-light)] rounded-2xl opacity-0 group-hover:opacity-20 blur transition-opacity duration-300"></div>
-              <div className="relative bg-white p-8 border-2 border-gray-200 rounded-2xl shadow-sm hover:shadow-2xl transition-all hover:border-[var(--accent)]/40">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[var(--accent)] to-[var(--accent-hover)] rounded-xl flex items-center justify-center shadow-lg transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                    <span className="text-white font-bold">{index + 1}</span>
-                  </div>
-                  <h3 className="text-lg font-bold text-foreground group-hover:text-[var(--accent)] transition-colors">
-                    {standard.category}
-                  </h3>
-                </div>
-                <ul className="space-y-3">
-                  {standard.items.map((item, itemIndex) => (
-                    <li key={itemIndex} className="flex items-start">
-                      <span className="text-[var(--accent)] mr-3 mt-1.5 text-xs">▸</span>
-                      <span className="text-sm text-foreground/60 leading-relaxed">
-                        {item}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <div
+              key={index}
+              className="bg-white p-5 border border-gray-200 rounded-lg hover:border-[var(--accent)]/50 hover:shadow-sm transition-all"
+            >
+              <h3 className="text-base font-semibold text-foreground mb-3">
+                {standard.category}
+              </h3>
+              <ul className="space-y-2">
+                {standard.items.map((item, itemIndex) => (
+                  <li key={itemIndex} className="flex items-start text-sm text-foreground/60">
+                    <span className="text-[var(--accent)] mr-2 mt-1">•</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>

@@ -5,10 +5,10 @@
 :root {
   --background: #ffffff;
   --foreground: #0f172a;
-  --foreground-secondary: #1e293b;
-  --accent: #1e40af;
-  --accent-hover: #1e3a8a;
-  --accent-light: #3b82f6;
+  --foreground-secondary: #475569;
+  --accent: #059669;
+  --accent-hover: #047857;
+  --accent-light: #10b981;
   --border: #e2e8f0;
   --surface: #f8fafc;
   --surface-elevated: #ffffff;
@@ -64,7 +64,7 @@ a, button {
 .btn-primary:hover {
   background: var(--accent-hover);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
 }
 
 .btn-secondary {
@@ -80,7 +80,7 @@ a, button {
 .btn-secondary:hover {
   border-color: var(--accent);
   color: var(--accent);
-  background: rgba(30, 64, 175, 0.05);
+  background: rgba(5, 150, 105, 0.05);
 }
 
 /* Subtle hover effects */

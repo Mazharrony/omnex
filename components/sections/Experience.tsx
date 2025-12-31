@@ -42,49 +42,48 @@ export default function Experience() {
   ];
 
   return (
-    <section className="py-24 md:py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Experience & Expertise
+    <section className="py-16 md:py-20 bg-gray-50">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8">
+        <div className="mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
+            Experience
           </h2>
-          <p className="text-lg text-foreground/60 max-w-3xl leading-relaxed">
-            Decades of experience serving the global energy and industrial sectors. 
-            Proven track record delivering complex projects on time and within specification.
+          <p className="text-base text-foreground/60 max-w-2xl">
+            Decades of experience serving the global energy and industrial sectors.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
           {stats.map((stat, index) => (
-            <div key={index} className="group relative">
-              <div className="absolute -inset-1 bg-gradient-to-br from-[var(--accent)] to-[var(--accent-light)] rounded-2xl opacity-0 group-hover:opacity-30 blur transition-opacity duration-300"></div>
-              <div className="relative text-center bg-gradient-to-br from-white via-gray-50 to-white p-8 rounded-2xl border-2 border-gray-200 hover:border-[var(--accent)]/40 hover:shadow-2xl transition-all transform group-hover:-translate-y-2">
-                <div className="text-5xl md:text-6xl font-bold bg-gradient-to-br from-[var(--accent)] to-[var(--accent-hover)] bg-clip-text text-transparent mb-3 group-hover:scale-110 transition-transform">
-                  {stat.number}
-                </div>
-                <div className="text-lg font-bold text-foreground mb-2">
-                  {stat.label}
-                </div>
-                <div className="text-sm text-foreground/60">
-                  {stat.description}
-                </div>
+            <div
+              key={index}
+              className="text-center bg-white p-5 border border-gray-200 rounded-lg hover:border-[var(--accent)]/50 hover:shadow-sm transition-all"
+            >
+              <div className="text-3xl md:text-4xl font-bold text-[var(--accent)] mb-2">
+                {stat.number}
+              </div>
+              <div className="text-sm font-semibold text-foreground mb-1">
+                {stat.label}
+              </div>
+              <div className="text-xs text-foreground/60">
+                {stat.description}
               </div>
             </div>
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {expertise.map((item, index) => (
-            <div key={index} className="group relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-light)] rounded-2xl opacity-0 group-hover:opacity-20 blur transition-opacity duration-300"></div>
-              <div className="relative border-l-4 border-[var(--accent)] pl-6 bg-gradient-to-br from-gray-50 to-white p-6 rounded-r-2xl hover:shadow-xl transition-all border-2 border-l-4 border-l-[var(--accent)] border-t-gray-200 border-r-gray-200 border-b-gray-200">
-                <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-[var(--accent)] transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-base text-foreground/70 leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
+            <div
+              key={index}
+              className="bg-white p-5 border-l-2 border-[var(--accent)] rounded-lg hover:shadow-sm transition-all"
+            >
+              <h3 className="text-base font-semibold text-foreground mb-2">
+                {item.title}
+              </h3>
+              <p className="text-sm text-foreground/60 leading-relaxed">
+                {item.description}
+              </p>
             </div>
           ))}
         </div>

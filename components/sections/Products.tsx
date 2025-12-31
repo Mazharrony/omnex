@@ -90,20 +90,18 @@ export default function Products() {
   ];
 
   return (
-    <section className="py-24 md:py-32 bg-white border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+    <section className="py-16 md:py-20 bg-white">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8">
+        <div className="mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
             Products
           </h2>
-          <p className="text-lg text-foreground/60 max-w-3xl leading-relaxed">
-            Comprehensive product portfolio covering electrical supplies, control systems, 
-            and technology solutions. Quality-certified products from leading manufacturers, 
-            backed by technical support and global supply chain capabilities.
+          <p className="text-base text-foreground/60 max-w-2xl">
+            Quality-certified products from leading manufacturers.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {products.map((product, index) => {
             const slug = product.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
             return (
@@ -112,57 +110,30 @@ export default function Products() {
                 href={`/products/${slug}`}
                 className="group block"
               >
-                <div className="relative bg-white border-2 border-gray-200 rounded-2xl overflow-hidden hover:border-[var(--accent)] hover:shadow-2xl transition-all duration-300 h-full flex flex-col">
-                  {/* Gradient overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[var(--accent)]/0 to-[var(--accent)]/0 group-hover:from-[var(--accent)]/5 group-hover:to-transparent transition-all duration-300 z-10"></div>
-                  
+                <div className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:border-[var(--accent)]/50 hover:shadow-sm transition-all h-full flex flex-col">
                   {/* Image Section */}
-                  <div className="relative aspect-[16/10] bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
+                  <div className="relative aspect-[4/3] bg-gray-100 overflow-hidden">
                     <Image
                       src={product.image}
                       alt={product.title}
                       fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
-                      style={{ filter: "grayscale(30%) contrast(1.1)" }}
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
-                    {/* Number Badge */}
-                    <div className="absolute top-4 left-4 z-20">
-                      <div className="w-12 h-12 bg-gradient-to-br from-[var(--accent)] to-[var(--accent-hover)] rounded-xl flex items-center justify-center shadow-lg transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                        <span className="text-white font-bold text-lg">{index + 1}</span>
-                      </div>
-                    </div>
-                    {/* Hover overlay */}
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300"></div>
                   </div>
                   
                   {/* Content Section */}
-                  <div className="p-6 flex-1 flex flex-col relative z-10">
-                    <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-[var(--accent)] transition-colors line-clamp-2">
+                  <div className="p-4 flex-1 flex flex-col">
+                    <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-[var(--accent)] transition-colors line-clamp-2">
                       {product.title}
                     </h3>
-                    <p className="text-sm text-foreground/70 mb-4 leading-relaxed line-clamp-3 flex-1">
+                    <p className="text-sm text-foreground/60 mb-3 leading-relaxed line-clamp-2 flex-1">
                       {product.description}
                     </p>
                     
-                    {/* Features Preview */}
-                    <div className="space-y-2 mb-4">
-                      {product.details.slice(0, 3).map((detail, detailIndex) => (
-                        <div key={detailIndex} className="flex items-center text-xs text-foreground/60">
-                          <span className="text-[var(--accent)] mr-2">✓</span>
-                          <span className="line-clamp-1">{detail}</span>
-                        </div>
-                      ))}
-                      {product.details.length > 3 && (
-                        <div className="text-xs text-[var(--accent)] font-medium">
-                          +{product.details.length - 3} more items
-                        </div>
-                      )}
-                    </div>
-                    
                     {/* CTA */}
-                    <div className="flex items-center text-[var(--accent)] font-semibold text-sm group-hover:gap-2 transition-all">
-                      <span>View Details</span>
-                      <span className="transform group-hover:translate-x-1 transition-transform">→</span>
+                    <div className="flex items-center text-[var(--accent)] text-sm font-medium mt-auto">
+                      <span>Learn more</span>
+                      <span className="ml-1 transform group-hover:translate-x-1 transition-transform">→</span>
                     </div>
                   </div>
                 </div>
