@@ -294,76 +294,122 @@ export default function ProductDetailPage({
     notFound();
   }
 
+  // Get related products (excluding current product)
+  const relatedProducts = products
+    .filter((p) => p.slug !== product.slug && p.category === product.category)
+    .slice(0, 3);
+
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="relative py-20 md:py-32 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
+      <section className="relative py-16 md:py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src={product.image}
             alt={product.title}
             fill
-            className="object-cover opacity-20"
-            style={{ filter: "grayscale(100%)" }}
+            className="object-cover opacity-15"
+            style={{ filter: "grayscale(100%) blur(2px)" }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70"></div>
         </div>
         
-        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8">
           <div className="max-w-4xl">
             <div className="mb-6">
               <Link
                 href="/products"
-                className="inline-flex items-center text-white/80 hover:text-white transition-colors text-sm mb-4"
+                className="inline-flex items-center text-white/80 hover:text-white transition-colors text-sm mb-4 group"
               >
-                <span>←</span>
+                <span className="transform group-hover:-translate-x-1 transition-transform">←</span>
                 <span className="ml-2">Back to Products</span>
               </Link>
               <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm font-medium mb-6">
                 {product.category}
               </span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
               {product.title}
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+            <p className="text-lg md:text-xl text-white/90 mb-6 leading-relaxed">
               {product.description}
             </p>
-            <Link
-              href="/contact"
-              className="inline-block px-8 py-4 text-base font-semibold text-gray-900 bg-white hover:bg-gray-100 transition-all rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5"
-            >
-              Request Quote
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link
+                href="/contact"
+                className="inline-block px-6 py-3 text-base font-semibold text-gray-900 bg-white hover:bg-gray-100 transition-all rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-center"
+              >
+                Request Quote
+              </Link>
+              <Link
+                href="#specifications"
+                className="inline-block px-6 py-3 text-base font-semibold text-white bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all rounded-lg text-center"
+              >
+                View Specifications
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Quick Stats */}
+      <section className="py-12 bg-gray-50 border-b border-gray-200">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-[var(--accent)] mb-1">1000+</div>
+              <div className="text-sm text-foreground/60">Products Available</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-[var(--accent)] mb-1">50+</div>
+              <div className="text-sm text-foreground/60">Manufacturer Partners</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-[var(--accent)] mb-1">24/7</div>
+              <div className="text-sm text-foreground/60">Technical Support</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-[var(--accent)] mb-1">ISO</div>
+              <div className="text-sm text-foreground/60">Certified Quality</div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Content Sections */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-12">
               {/* Overview */}
               <div>
-                <h2 className="text-3xl font-bold text-foreground mb-6">Overview</h2>
-                <p className="text-lg text-foreground/70 leading-relaxed">
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Overview</h2>
+                <p className="text-base text-foreground/70 leading-relaxed mb-4">
                   {product.longDescription}
                 </p>
+                <div className="bg-gray-50 border-l-4 border-[var(--accent)] p-4 rounded-r-lg">
+                  <p className="text-sm text-foreground/70 italic">
+                    Our {product.title.toLowerCase()} solutions are engineered for reliability, 
+                    performance, and long-term value. Backed by comprehensive technical support 
+                    and global supply chain capabilities.
+                  </p>
+                </div>
               </div>
 
               {/* Features */}
               <div>
-                <h2 className="text-3xl font-bold text-foreground mb-6">Key Features</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">Key Features</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {product.features.map((feature, index) => (
                     <div
                       key={index}
-                      className="flex items-start p-4 bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-lg hover:border-[var(--accent)]/40 transition-colors"
+                      className="flex items-start p-4 bg-gray-50 border border-gray-200 rounded-lg hover:border-[var(--accent)]/40 hover:shadow-sm transition-all group"
                     >
-                      <span className="text-[var(--accent)] mr-3 mt-1 text-xl">✓</span>
-                      <span className="text-base text-foreground/70">{feature}</span>
+                      <div className="w-8 h-8 bg-[var(--accent)]/10 rounded-lg flex items-center justify-center mr-3 flex-shrink-0 group-hover:bg-[var(--accent)]/20 transition-colors">
+                        <span className="text-[var(--accent)] font-bold text-lg">✓</span>
+                      </div>
+                      <span className="text-sm text-foreground/70 pt-1">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -371,63 +417,354 @@ export default function ProductDetailPage({
 
               {/* Applications */}
               <div>
-                <h2 className="text-3xl font-bold text-foreground mb-6">Applications</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">Applications</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {product.applications.map((app, index) => (
                     <div
                       key={index}
-                      className="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-100"
+                      className="flex items-center p-3 bg-gray-50 rounded-lg border border-gray-100 hover:border-[var(--accent)]/30 transition-colors"
                     >
-                      <span className="text-[var(--accent)] mr-3">•</span>
+                      <span className="text-[var(--accent)] mr-3 font-bold">•</span>
                       <span className="text-sm text-foreground/70">{app}</span>
                     </div>
                   ))}
                 </div>
               </div>
+
+              {/* Benefits */}
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">Benefits</h2>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-4 p-4 bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-lg">
+                    <div className="w-10 h-10 bg-[var(--accent)]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <span className="text-[var(--accent)] text-xl">⚡</span>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1">Energy Efficiency</h4>
+                      <p className="text-sm text-foreground/60">
+                        Optimized design reduces energy consumption and operational costs while maintaining peak performance.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4 p-4 bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-lg">
+                    <div className="w-10 h-10 bg-[var(--accent)]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <span className="text-[var(--accent)] text-xl">🛡️</span>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1">Reliability & Durability</h4>
+                      <p className="text-sm text-foreground/60">
+                        Built to withstand harsh industrial environments with extended service life and minimal maintenance requirements.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4 p-4 bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-lg">
+                    <div className="w-10 h-10 bg-[var(--accent)]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <span className="text-[var(--accent)] text-xl">🔧</span>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1">Easy Installation</h4>
+                      <p className="text-sm text-foreground/60">
+                        Designed for straightforward installation with comprehensive documentation and technical support available.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Technical Details */}
+              <div id="specifications">
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">Technical Specifications</h2>
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                  <div className="space-y-4">
+                    {product.specifications.map((spec, index) => (
+                      <div key={index} className="flex items-start border-b border-gray-200 pb-4 last:border-b-0 last:pb-0">
+                        <span className="text-[var(--accent)] mr-3 mt-1 font-bold">▸</span>
+                        <div className="flex-1">
+                          <div className="text-sm text-foreground/60 mb-1">Technical Parameter</div>
+                          <div className="text-base text-foreground font-medium">{spec}</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Sidebar */}
-            <div className="space-y-8">
-              {/* Specifications */}
-              <div className="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-2xl p-6">
-                <h3 className="text-xl font-bold text-foreground mb-6">Specifications</h3>
-                <div className="space-y-4">
-                  {product.specifications.map((spec, index) => (
-                    <div key={index} className="border-b border-gray-200 pb-4 last:border-b-0">
-                      <div className="text-sm text-foreground/60 mb-1">Specification</div>
-                      <div className="text-base text-foreground font-medium">{spec}</div>
+            <div className="space-y-6">
+              {/* Specifications Card */}
+              <div className="bg-white border-2 border-gray-200 rounded-xl p-6 sticky top-24">
+                <h3 className="text-lg font-bold text-foreground mb-4">Quick Specs</h3>
+                <div className="space-y-3">
+                  {product.specifications.slice(0, 4).map((spec, index) => (
+                    <div key={index} className="pb-3 border-b border-gray-100 last:border-b-0 last:pb-0">
+                      <div className="text-xs text-foreground/50 mb-1">Spec</div>
+                      <div className="text-sm text-foreground font-medium">{spec}</div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Product List */}
-              <div className="bg-white border-2 border-gray-200 rounded-2xl p-6">
-                <h3 className="text-xl font-bold text-foreground mb-6">Product Range</h3>
-                <ul className="space-y-3">
+              {/* Product Range */}
+              <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
+                <h3 className="text-lg font-bold text-foreground mb-4">Product Range</h3>
+                <ul className="space-y-2">
                   {product.details.map((detail, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="text-[var(--accent)] mr-2 mt-1">▸</span>
-                      <span className="text-sm text-foreground/70">{detail}</span>
+                    <li key={index} className="flex items-start text-sm text-foreground/70">
+                      <span className="text-[var(--accent)] mr-2 mt-1">•</span>
+                      <span>{detail}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
               {/* CTA */}
-              <div className="bg-gradient-to-br from-[var(--accent)] to-[var(--accent-hover)] rounded-2xl p-6 text-white">
-                <h3 className="text-xl font-bold mb-3">Need More Information?</h3>
-                <p className="text-white/90 mb-6 text-sm">
+              <div className="bg-gradient-to-br from-[var(--accent)] to-[var(--accent-hover)] rounded-xl p-6 text-white">
+                <h3 className="text-lg font-bold mb-2">Need More Information?</h3>
+                <p className="text-white/90 mb-4 text-sm leading-relaxed">
                   Contact our technical team for detailed specifications, pricing, and custom solutions.
                 </p>
                 <Link
                   href="/contact"
-                  className="block w-full text-center px-6 py-3 bg-white text-[var(--accent)] font-semibold rounded-lg hover:bg-gray-100 transition-colors"
+                  className="block w-full text-center px-6 py-3 bg-white text-[var(--accent)] font-semibold rounded-lg hover:bg-gray-100 transition-colors mb-3"
                 >
                   Contact Us
                 </Link>
+                <Link
+                  href="/contact"
+                  className="block w-full text-center px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium rounded-lg hover:bg-white/20 transition-colors text-sm"
+                >
+                  Request Quote
+                </Link>
+              </div>
+
+              {/* Support */}
+              <div className="bg-white border border-gray-200 rounded-xl p-6">
+                <h3 className="text-lg font-bold text-foreground mb-4">Support Services</h3>
+                <ul className="space-y-3 text-sm text-foreground/70">
+                  <li className="flex items-start">
+                    <span className="text-[var(--accent)] mr-2">✓</span>
+                    <span>24/7 Technical Support</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-[var(--accent)] mr-2">✓</span>
+                    <span>Installation Guidance</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-[var(--accent)] mr-2">✓</span>
+                    <span>Warranty Coverage</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-[var(--accent)] mr-2">✓</span>
+                    <span>Spare Parts Availability</span>
+                  </li>
+                </ul>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Installation & Maintenance */}
+      <section className="py-16 md:py-20 bg-white border-t border-gray-200">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">Installation & Maintenance</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center">
+                <span className="text-2xl mr-3">🔧</span>
+                Installation
+              </h3>
+              <ul className="space-y-2 text-sm text-foreground/70">
+                <li className="flex items-start">
+                  <span className="text-[var(--accent)] mr-2 mt-1">•</span>
+                  <span>Comprehensive installation manuals provided</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-[var(--accent)] mr-2 mt-1">•</span>
+                  <span>Technical support during installation</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-[var(--accent)] mr-2 mt-1">•</span>
+                  <span>On-site installation services available</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-[var(--accent)] mr-2 mt-1">•</span>
+                  <span>Commissioning and testing included</span>
+                </li>
+              </ul>
+            </div>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center">
+                <span className="text-2xl mr-3">⚙️</span>
+                Maintenance
+              </h3>
+              <ul className="space-y-2 text-sm text-foreground/70">
+                <li className="flex items-start">
+                  <span className="text-[var(--accent)] mr-2 mt-1">•</span>
+                  <span>Preventive maintenance programs</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-[var(--accent)] mr-2 mt-1">•</span>
+                  <span>Spare parts inventory management</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-[var(--accent)] mr-2 mt-1">•</span>
+                  <span>Remote monitoring and diagnostics</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-[var(--accent)] mr-2 mt-1">•</span>
+                  <span>Lifecycle support and upgrades</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Resources & Downloads */}
+      <section className="py-16 md:py-20 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">Resources & Downloads</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="bg-white border border-gray-200 rounded-lg p-5 hover:border-[var(--accent)]/50 hover:shadow-sm transition-all">
+              <div className="text-3xl mb-3">📄</div>
+              <h3 className="font-semibold text-foreground mb-2">Technical Datasheets</h3>
+              <p className="text-sm text-foreground/60 mb-4">
+                Detailed technical specifications and performance data
+              </p>
+              <button className="text-sm text-[var(--accent)] font-medium hover:underline">
+                Download PDF →
+              </button>
+            </div>
+            <div className="bg-white border border-gray-200 rounded-lg p-5 hover:border-[var(--accent)]/50 hover:shadow-sm transition-all">
+              <div className="text-3xl mb-3">📋</div>
+              <h3 className="font-semibold text-foreground mb-2">Installation Guides</h3>
+              <p className="text-sm text-foreground/60 mb-4">
+                Step-by-step installation and commissioning procedures
+              </p>
+              <button className="text-sm text-[var(--accent)] font-medium hover:underline">
+                Download PDF →
+              </button>
+            </div>
+            <div className="bg-white border border-gray-200 rounded-lg p-5 hover:border-[var(--accent)]/50 hover:shadow-sm transition-all">
+              <div className="text-3xl mb-3">🎓</div>
+              <h3 className="font-semibold text-foreground mb-2">Training Materials</h3>
+              <p className="text-sm text-foreground/60 mb-4">
+                Operator training guides and maintenance procedures
+              </p>
+              <button className="text-sm text-[var(--accent)] font-medium hover:underline">
+                Download PDF →
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 md:py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8">
+          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">Frequently Asked Questions</h2>
+          <div className="space-y-4">
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-5">
+              <h3 className="font-semibold text-foreground mb-2">What certifications do these products have?</h3>
+              <p className="text-sm text-foreground/70">
+                All products meet international standards including CE, UL, CSA, and regional certifications. 
+                Comprehensive certification documentation is provided with every delivery.
+              </p>
+            </div>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-5">
+              <h3 className="font-semibold text-foreground mb-2">What is the typical delivery time?</h3>
+              <p className="text-sm text-foreground/70">
+                Standard delivery times range from 2-6 weeks depending on product type and quantity. 
+                Expedited shipping options are available for urgent requirements.
+              </p>
+            </div>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-5">
+              <h3 className="font-semibold text-foreground mb-2">Do you provide technical support?</h3>
+              <p className="text-sm text-foreground/70">
+                Yes, we offer 24/7 technical support from certified engineers. Support includes product 
+                selection, installation guidance, troubleshooting, and maintenance assistance.
+              </p>
+            </div>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-5">
+              <h3 className="font-semibold text-foreground mb-2">Are custom specifications available?</h3>
+              <p className="text-sm text-foreground/70">
+                Yes, we work with manufacturers to provide custom solutions tailored to specific project 
+                requirements. Our engineering team can assist with design and specification development.
+              </p>
+            </div>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-5">
+              <h3 className="font-semibold text-foreground mb-2">What warranty coverage is provided?</h3>
+              <p className="text-sm text-foreground/70">
+                Warranty coverage varies by product type and manufacturer, typically ranging from 1-5 years. 
+                Full warranty details are provided with product documentation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Related Products */}
+      {relatedProducts.length > 0 && (
+        <section className="py-16 md:py-20 bg-gray-50 border-t border-gray-200">
+          <div className="max-w-6xl mx-auto px-6 sm:px-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">Related Products</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {relatedProducts.map((relatedProduct) => (
+                <Link
+                  key={relatedProduct.slug}
+                  href={`/products/${relatedProduct.slug}`}
+                  className="group bg-white border border-gray-200 rounded-lg overflow-hidden hover:border-[var(--accent)]/50 hover:shadow-md transition-all"
+                >
+                  <div className="relative aspect-[4/3] bg-gray-100">
+                    <Image
+                      src={relatedProduct.image}
+                      alt={relatedProduct.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-[var(--accent)] transition-colors line-clamp-2">
+                      {relatedProduct.title}
+                    </h3>
+                    <p className="text-sm text-foreground/60 line-clamp-2 mb-3">
+                      {relatedProduct.description}
+                    </p>
+                    <div className="flex items-center text-[var(--accent)] text-sm font-medium">
+                      <span>Learn more</span>
+                      <span className="ml-1 transform group-hover:translate-x-1 transition-transform">→</span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Final CTA */}
+      <section className="py-16 md:py-20 bg-gradient-to-br from-[var(--accent)] to-[var(--accent-hover)] text-white">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started?</h2>
+          <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
+            Contact our team today for detailed specifications, competitive pricing, and expert guidance 
+            on selecting the right solution for your project.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/contact"
+              className="inline-block px-8 py-4 text-base font-semibold bg-white text-[var(--accent)] hover:bg-gray-100 transition-all rounded-lg shadow-lg hover:shadow-xl"
+            >
+              Request Quote
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-block px-8 py-4 text-base font-semibold bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all rounded-lg"
+            >
+              Contact Sales Team
+            </Link>
           </div>
         </div>
       </section>
