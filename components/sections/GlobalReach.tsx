@@ -18,7 +18,7 @@ export default function GlobalReach() {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="max-w-4xl">
-          <h2 className="text-4xl md:text-5xl font-semibold mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Global Reach
           </h2>
           <p className="text-lg md:text-xl text-white/90 mb-6 leading-relaxed font-medium">

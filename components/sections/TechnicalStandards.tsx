@@ -39,7 +39,7 @@ export default function TechnicalStandards() {
     <section className="py-24 md:py-32 bg-[var(--background)]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-semibold text-foreground mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Compliance & Standards
           </h2>
           <p className="text-lg text-foreground/60 max-w-3xl leading-relaxed">
@@ -49,12 +49,15 @@ export default function TechnicalStandards() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {standards.map((standard, index) => (
-            <div key={index} className="bg-white p-8 border border-gray-100">
-              <h3 className="text-lg font-semibold text-foreground mb-6">
-                {standard.category}
-              </h3>
+            <div key={index} className="bg-white p-8 border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-1 h-8 bg-[var(--accent)] rounded-full"></div>
+                <h3 className="text-lg font-bold text-foreground">
+                  {standard.category}
+                </h3>
+              </div>
               <ul className="space-y-3">
                 {standard.items.map((item, itemIndex) => (
                   <li key={itemIndex} className="flex items-start">

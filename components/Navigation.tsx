@@ -25,7 +25,7 @@ export default function Navigation() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/95 backdrop-blur-sm shadow-sm" : "bg-transparent"
+        isScrolled ? "bg-white/98 backdrop-blur-md shadow-md border-b border-gray-100" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
@@ -50,12 +50,12 @@ export default function Navigation() {
           </div>
 
           <div className="hidden md:block">
-            <Link
-              href="/contact"
-              className="px-6 py-2.5 text-sm font-medium text-white bg-[var(--accent)] hover:opacity-90 transition-opacity"
-            >
-              Request Quote
-            </Link>
+          <Link
+            href="/contact"
+            className="px-6 py-2.5 text-sm font-semibold text-white bg-[var(--accent)] hover:bg-[var(--accent-hover)] transition-all rounded-lg shadow-sm hover:shadow-md"
+          >
+            Request Quote
+          </Link>
           </div>
 
           {/* Mobile menu button */}

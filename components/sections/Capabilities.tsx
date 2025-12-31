@@ -32,7 +32,7 @@ export default function Capabilities() {
     <section className="py-24 md:py-32 bg-[var(--background)]">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-semibold text-foreground mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Operational Capabilities
           </h2>
           <p className="text-lg text-foreground/60 max-w-3xl leading-relaxed">
@@ -42,20 +42,27 @@ export default function Capabilities() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
           {capabilities.map((capability, index) => (
-            <div key={index} className="bg-white p-8 border border-gray-100">
-              <h3 className="text-xl font-semibold text-foreground mb-3">
-                {capability.title}
-              </h3>
-              <p className="text-base text-foreground/60 leading-relaxed">
-                {capability.description}
-              </p>
+            <div key={index} className="bg-white p-8 border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow hover:border-[var(--accent)]/30">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-[var(--accent)]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <span className="text-[var(--accent)] font-bold text-xl">{index + 1}</span>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-foreground mb-3">
+                    {capability.title}
+                  </h3>
+                  <p className="text-base text-foreground/60 leading-relaxed">
+                    {capability.description}
+                  </p>
+                </div>
+              </div>
             </div>
           ))}
         </div>
 
-        <div className="relative aspect-[16/6] mt-12">
+        <div className="relative aspect-[16/6] mt-12 rounded-xl overflow-hidden border border-gray-200 shadow-lg">
           <Image
             src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1200&q=80"
             alt="Industrial infrastructure"

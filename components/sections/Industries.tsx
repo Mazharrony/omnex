@@ -78,7 +78,7 @@ export default function Industries() {
     <section className="py-24 md:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-semibold text-foreground mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Industries Served
           </h2>
           <p className="text-lg text-foreground/60 max-w-3xl leading-relaxed">
@@ -87,15 +87,20 @@ export default function Industries() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {industries.map((industry, index) => (
             <div
               key={index}
-              className="border border-gray-200 p-8 hover:border-foreground/20 transition-colors bg-white"
+              className="border border-gray-200 p-8 rounded-lg hover:border-[var(--accent)]/40 hover:shadow-lg transition-all bg-white group"
             >
-              <h3 className="text-xl font-semibold text-foreground mb-3">
-                {industry.name}
-              </h3>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 bg-[var(--accent)]/10 rounded-lg flex items-center justify-center group-hover:bg-[var(--accent)]/20 transition-colors">
+                  <span className="text-[var(--accent)] font-bold">{index + 1}</span>
+                </div>
+                <h3 className="text-xl font-bold text-foreground">
+                  {industry.name}
+                </h3>
+              </div>
               <p className="text-sm text-foreground/60 mb-4 leading-relaxed">
                 {industry.description}
               </p>

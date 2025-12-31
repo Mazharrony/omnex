@@ -47,10 +47,10 @@ export default function Services() {
   ];
 
   return (
-    <section className="py-24 md:py-32 bg-white">
+    <section className="py-24 md:py-32 bg-white border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-semibold text-foreground mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Solutions
           </h2>
           <p className="text-lg text-foreground/60 max-w-3xl leading-relaxed">
@@ -62,17 +62,22 @@ export default function Services() {
         <div className="space-y-16">
           {services.map((service, index) => (
             <div key={index} className="border-b border-gray-200 pb-16 last:border-b-0">
-              <h3 className="text-2xl md:text-3xl font-semibold text-foreground mb-4">
-                {service.title}
-              </h3>
-              <p className="text-base md:text-lg text-foreground/70 leading-relaxed mb-6 max-w-4xl">
-                {service.description}
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="w-1 h-16 bg-[var(--accent)] rounded-full flex-shrink-0"></div>
+                <div className="flex-1">
+                  <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+                    {service.title}
+                  </h3>
+                  <p className="text-base md:text-lg text-foreground/70 leading-relaxed mb-6 max-w-4xl">
+                    {service.description}
+                  </p>
+                </div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6 ml-5">
                 {service.details.map((detail, detailIndex) => (
-                  <div key={detailIndex} className="flex items-start">
-                    <span className="text-[var(--accent)] mr-3 mt-1.5 font-semibold">•</span>
-                    <span className="text-sm md:text-base text-foreground/60 leading-relaxed">
+                  <div key={detailIndex} className="flex items-start bg-gray-50 p-4 rounded-lg border border-gray-100">
+                    <span className="text-[var(--accent)] mr-3 mt-1.5 font-bold text-lg">•</span>
+                    <span className="text-sm md:text-base text-foreground/70 leading-relaxed">
                       {detail}
                     </span>
                   </div>

@@ -45,7 +45,7 @@ export default function Experience() {
     <section className="py-24 md:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-semibold text-foreground mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Experience & Expertise
           </h2>
           <p className="text-lg text-foreground/60 max-w-3xl leading-relaxed">
@@ -54,29 +54,29 @@ export default function Experience() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
           {stats.map((stat, index) => (
-            <div key={index} className="text-center">
-              <div className="text-4xl md:text-5xl font-semibold text-[var(--accent)] mb-2">
+            <div key={index} className="text-center bg-gradient-to-br from-gray-50 to-white p-8 rounded-xl border border-gray-200 hover:border-[var(--accent)]/40 hover:shadow-lg transition-all">
+              <div className="text-5xl md:text-6xl font-bold text-[var(--accent)] mb-3">
                 {stat.number}
               </div>
-              <div className="text-lg font-medium text-foreground mb-1">
+              <div className="text-lg font-bold text-foreground mb-2">
                 {stat.label}
               </div>
-              <div className="text-sm text-foreground/50">
+              <div className="text-sm text-foreground/60">
                 {stat.description}
               </div>
             </div>
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {expertise.map((item, index) => (
-            <div key={index} className="border-l-2 border-[var(--accent)] pl-6">
-              <h3 className="text-xl font-semibold text-foreground mb-3">
+            <div key={index} className="border-l-4 border-[var(--accent)] pl-6 bg-gray-50 p-6 rounded-r-lg hover:bg-gray-100 transition-colors">
+              <h3 className="text-xl font-bold text-foreground mb-3">
                 {item.title}
               </h3>
-              <p className="text-base text-foreground/60 leading-relaxed">
+              <p className="text-base text-foreground/70 leading-relaxed">
                 {item.description}
               </p>
             </div>

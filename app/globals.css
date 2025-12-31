@@ -3,9 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --background: #fafafa;
-  --foreground: #1a1a1a;
-  --accent: #0066ff;
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --foreground-secondary: #1e293b;
+  --accent: #1e40af;
+  --accent-hover: #1e3a8a;
+  --accent-light: #3b82f6;
+  --border: #e2e8f0;
+  --surface: #f8fafc;
+  --surface-elevated: #ffffff;
   --font-inter: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
@@ -42,7 +48,39 @@ body {
 
 /* Smooth transitions */
 a, button {
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Professional button styles */
+.btn-primary {
+  background: var(--accent);
+  color: white;
+  padding: 0.875rem 2rem;
+  font-weight: 500;
+  border-radius: 0.375rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--foreground);
+  padding: 0.875rem 2rem;
+  font-weight: 500;
+  border: 1.5px solid var(--border);
+  border-radius: 0.375rem;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(30, 64, 175, 0.05);
 }
 
 /* Subtle hover effects */
