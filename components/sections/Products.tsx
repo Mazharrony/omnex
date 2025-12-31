@@ -94,11 +94,26 @@ export default function Products() {
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         <div className="mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
-            Products
+            Our Products
           </h2>
-          <p className="text-base text-foreground/60 max-w-2xl">
-            Quality-certified products from leading manufacturers.
+          <p className="text-base text-foreground/60 max-w-2xl mb-6">
+            Quality-certified products from leading manufacturers, backed by 
+            technical expertise and comprehensive support services.
           </p>
+          <div className="flex flex-wrap gap-4 text-sm">
+            <div className="bg-gray-50 px-4 py-2 rounded border border-gray-200">
+              <span className="font-semibold text-foreground">6</span>
+              <span className="text-foreground/60 ml-2">Product Categories</span>
+            </div>
+            <div className="bg-gray-50 px-4 py-2 rounded border border-gray-200">
+              <span className="font-semibold text-foreground">1000+</span>
+              <span className="text-foreground/60 ml-2">Products Available</span>
+            </div>
+            <div className="bg-gray-50 px-4 py-2 rounded border border-gray-200">
+              <span className="font-semibold text-foreground">50+</span>
+              <span className="text-foreground/60 ml-2">Manufacturer Partners</span>
+            </div>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -129,6 +144,21 @@ export default function Products() {
                     <p className="text-sm text-foreground/60 mb-3 leading-relaxed line-clamp-2 flex-1">
                       {product.description}
                     </p>
+                    
+                    {/* Quick Features */}
+                    <div className="mb-3 space-y-1">
+                      {product.details.slice(0, 2).map((detail, detailIndex) => (
+                        <div key={detailIndex} className="flex items-center text-xs text-foreground/50">
+                          <span className="text-[var(--accent)] mr-1.5">•</span>
+                          <span className="line-clamp-1">{detail}</span>
+                        </div>
+                      ))}
+                      {product.details.length > 2 && (
+                        <div className="text-xs text-[var(--accent)] font-medium">
+                          +{product.details.length - 2} more items
+                        </div>
+                      )}
+                    </div>
                     
                     {/* CTA */}
                     <div className="flex items-center text-[var(--accent)] text-sm font-medium mt-auto">
