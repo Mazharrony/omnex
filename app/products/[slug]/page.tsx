@@ -319,14 +319,16 @@ export default function ProductDetailPage({
             <div className="mb-6">
               <Link
                 href="/products"
-                className="inline-flex items-center text-white/80 hover:text-white transition-colors text-sm mb-4 group"
+                className="inline-flex items-center text-white/80 hover:text-white transition-colors text-sm mb-3 group"
               >
                 <span className="transform group-hover:-translate-x-1 transition-transform">←</span>
                 <span className="ml-2">Back to Products</span>
               </Link>
-              <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm font-medium mb-6">
-                {product.category}
-              </span>
+              <div>
+                <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm font-medium">
+                  {product.category}
+                </span>
+              </div>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
               {product.title}
