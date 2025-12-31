@@ -27,7 +27,7 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-32 pb-32">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 pt-32 pb-32">
         <div className="max-w-4xl">
           <div className="mb-8">
             <span className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm font-medium text-white mb-6">
@@ -48,13 +48,13 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-4">
             <Link
               href="/contact"
-              className="px-6 py-3 text-base font-semibold text-white bg-[var(--accent)] hover:bg-[var(--accent-hover)] transition-all inline-block text-center rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5"
+              className="px-6 py-3.5 text-base font-semibold text-white bg-gradient-to-r from-[var(--accent)] to-[var(--accent-hover)] hover:from-[var(--accent-hover)] hover:to-[var(--accent)] transition-all inline-block text-center rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5"
             >
               Request Quote
             </Link>
             <Link
               href="/solutions"
-              className="px-6 py-3 text-base font-semibold text-white bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all inline-block text-center rounded-lg"
+              className="px-6 py-3.5 text-base font-semibold text-white bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all inline-block text-center rounded-lg"
             >
               View Solutions
             </Link>

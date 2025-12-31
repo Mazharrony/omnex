@@ -57,7 +57,7 @@ export default function Experience() {
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="text-center bg-white p-5 border border-gray-200 rounded-lg hover:border-[var(--accent)]/50 hover:shadow-sm transition-all"
+              className="text-center bg-white p-5 border border-gray-200 rounded-lg hover:border-[var(--accent)]/50 hover:shadow-md transition-all duration-300 transition-all"
             >
               <div className="text-3xl md:text-4xl font-bold text-[var(--accent)] mb-2">
                 {stat.number}
@@ -76,7 +76,7 @@ export default function Experience() {
           {expertise.map((item, index) => (
             <div
               key={index}
-              className="bg-white p-5 border-l-2 border-[var(--accent)] rounded-lg hover:shadow-sm transition-all"
+              className="bg-white p-5 border-l-2 border-[var(--accent)] rounded-lg hover:shadow-md transition-all duration-300 transition-all"
             >
               <h3 className="text-base font-semibold text-foreground mb-2">
                 {item.title}

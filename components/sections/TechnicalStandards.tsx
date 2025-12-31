@@ -51,7 +51,7 @@ export default function TechnicalStandards() {
           {standards.map((standard, index) => (
             <div
               key={index}
-              className="bg-white p-5 border border-gray-200 rounded-lg hover:border-[var(--accent)]/50 hover:shadow-sm transition-all"
+              className="bg-white p-5 border border-gray-200 rounded-lg hover:border-[var(--accent)]/50 hover:shadow-md transition-all duration-300"
             >
               <h3 className="text-base font-semibold text-foreground mb-3">
                 {standard.category}

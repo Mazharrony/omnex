@@ -63,7 +63,7 @@ export default function ProductCategories() {
             <Link
               key={index}
               href={category.href}
-              className="group bg-white border border-gray-200 rounded-lg p-4 hover:border-[var(--accent)]/50 hover:shadow-sm transition-all text-center"
+              className="group bg-white border border-gray-200 rounded-lg p-4 hover:border-[var(--accent)]/50 hover:shadow-md transition-all duration-300 transition-all text-center"
             >
               <div className="text-3xl mb-2">{category.icon}</div>
               <div className="text-xs font-semibold text-foreground mb-1 group-hover:text-[var(--accent)] transition-colors">

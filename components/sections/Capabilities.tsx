@@ -44,7 +44,7 @@ export default function Capabilities() {
           {capabilities.map((capability, index) => (
             <div
               key={index}
-              className="group bg-white p-5 border border-gray-200 rounded-lg hover:border-[var(--accent)]/50 hover:shadow-sm transition-all"
+              className="group bg-white p-5 border border-gray-200 rounded-lg hover:border-[var(--accent)]/50 hover:shadow-md transition-all duration-300"
             >
               <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-[var(--accent)] transition-colors">
                 {capability.title}

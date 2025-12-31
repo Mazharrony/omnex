@@ -44,7 +44,7 @@ export default function GlobalReach() {
           </div>
           <Link
             href="/contact"
-            className="inline-block px-6 py-3 text-sm font-medium bg-white text-foreground hover:opacity-90 transition-opacity rounded-lg"
+            className="inline-block px-6 py-3.5 text-base font-semibold bg-white text-foreground hover:bg-gray-100 transition-all rounded-lg shadow-md hover:shadow-lg"
           >
             Contact Us
           </Link>

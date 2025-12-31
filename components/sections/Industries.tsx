@@ -90,7 +90,7 @@ export default function Industries() {
           {industries.map((industry, index) => (
             <div
               key={index}
-              className="group bg-white border border-gray-200 rounded-lg p-5 hover:border-[var(--accent)]/50 hover:shadow-sm transition-all h-full flex flex-col"
+              className="group bg-white border border-gray-200 rounded-lg p-5 hover:border-[var(--accent)]/50 hover:shadow-md transition-all duration-300 h-full flex flex-col"
             >
               <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-[var(--accent)] transition-colors">
                 {industry.name}

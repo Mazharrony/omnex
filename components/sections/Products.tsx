@@ -125,7 +125,7 @@ export default function Products() {
                 href={`/products/${slug}`}
                 className="group block"
               >
-                <div className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:border-[var(--accent)]/50 hover:shadow-sm transition-all h-full flex flex-col">
+                <div className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:border-[var(--accent)]/50 hover:shadow-md transition-all duration-300 h-full flex flex-col">
                   {/* Image Section */}
                   <div className="relative aspect-[4/3] bg-gray-100 overflow-hidden">
                     <Image
