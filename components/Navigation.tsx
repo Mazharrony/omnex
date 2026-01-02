@@ -1,14 +1,16 @@
 "use client";
 
-import Link from "next/link";
+import { Link, usePathname } from "@/i18n/routing";
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const isHomePage = pathname === "/";
+  const t = useTranslations("common.nav");
+  const isHomePage = pathname === "/" || pathname.endsWith("/en") || pathname.endsWith("/ar");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,11 +23,11 @@ export default function Navigation() {
   }, []);
 
   const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/products", label: "Products" },
-    { href: "/solutions", label: "Solutions" },
-    { href: "/about", label: "About" },
-    { href: "/contact", label: "Contact" },
+    { href: "/", label: t("home") },
+    { href: "/products", label: t("products") },
+    { href: "/solutions", label: t("solutions") },
+    { href: "/about", label: t("about") },
+    { href: "/contact", label: t("contact") },
   ];
 
   // On homepage, use transparent when not scrolled; on other pages, always show background
@@ -53,7 +55,7 @@ export default function Navigation() {
 
           <div className="hidden md:flex items-center gap-2">
             {navLinks.map((link) => {
-              const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+              const isActive = pathname === link.href || (link.href !== "/" && pathname.includes(link.href));
               return (
                 <Link
                   key={link.href}
@@ -73,14 +75,15 @@ export default function Navigation() {
             })}
           </div>
 
-          <div className="hidden md:block">
-          <Link
-            href="/contact"
-            className="relative px-6 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-[var(--accent)] to-[var(--accent-hover)] hover:from-[var(--accent-hover)] hover:to-[var(--accent)] transition-all rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 overflow-hidden group"
-          >
-            <span className="relative z-10">Request Quote</span>
-            <span className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
-          </Link>
+          <div className="hidden md:flex items-center gap-3">
+            <LanguageSwitcher shouldShowBackground={shouldShowBackground} />
+            <Link
+              href="/contact"
+              className="relative px-6 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-[var(--accent)] to-[var(--accent-hover)] hover:from-[var(--accent-hover)] hover:to-[var(--accent)] transition-all rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 overflow-hidden group"
+            >
+              <span className="relative z-10">{t("requestQuote")}</span>
+              <span className="absolute inset-0 bg-white/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -132,13 +135,16 @@ export default function Navigation() {
                   </Link>
                 );
               })}
-              <Link
-                href="/contact"
-                className="block px-6 py-2.5 text-sm font-medium text-white bg-[var(--accent)] hover:opacity-90 transition-opacity text-center mt-4"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Request Quote
-              </Link>
+              <div className="mt-4 space-y-3">
+                <LanguageSwitcher />
+                <Link
+                  href="/contact"
+                  className="block px-6 py-2.5 text-sm font-medium text-white bg-[var(--accent)] hover:opacity-90 transition-opacity text-center"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {t("requestQuote")}
+                </Link>
+              </div>
             </div>
           </div>
         )}

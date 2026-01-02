@@ -1,0 +1,36 @@
+{
+  "common": {
+    "nav": {
+      "home": "Home",
+      "products": "Products",
+      "solutions": "Solutions",
+      "about": "About",
+      "contact": "Contact",
+      "requestQuote": "Request Quote"
+    },
+    "footer": {
+      "company": "Company",
+      "products": "Products",
+      "solutions": "Solutions",
+      "support": "Support",
+      "legal": "Legal",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "copyright": "All rights reserved"
+    }
+  },
+  "home": {
+    "hero": {
+      "badge": "Global Energy Solutions Provider",
+      "title": "Oil & Gas Solutions",
+      "subtitle": "Electrical Supplies",
+      "description": "Global provider delivering precision-engineered equipment, certified electrical systems, and industrial intelligence to energy infrastructure worldwide.",
+      "cta": {
+        "requestQuote": "Request Quote",
+        "viewSolutions": "View Solutions"
+      }
+    }
+  }
+}
+
+
